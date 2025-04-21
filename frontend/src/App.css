@@ -1,0 +1,219 @@
+:root {
+  --green: #6C9A8B;
+  --coral-pink: #E8998D;
+  --dusty-pink: #EED2CC;
+  --cream: #FBF7F4;
+  --brown: #A1683A;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--cream);
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--brown);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+
+header {
+  background-color: var(--green);
+  color: var(--cream);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.welcome-text {
+  font-weight: 500;
+}
+
+header nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+header nav a,
+.auth-link {
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header nav a:hover,
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
+
+footer {
+  background-color: var(--green);
+  color: var(--cream);
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  margin-top: auto; /* Ensures the footer stays at the bottom */
+}
+
+/* BOOK CARDS */
+
+.book-card {
+  background-color: var(--dusty-pink);
+  border: 2px solid var(--brown);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem;
+  max-width: 300px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+/* BUTTONS */
+
+.button {
+  background-color: var(--coral-pink);
+  color: var(--cream);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #F4D03F;
+}
+
+/* POPUPS */
+
+.popup {
+  background-color: var(--cream);
+  border: 2px solid var(--green);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+}
+
+/* LOGIN PAGE */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #FBF7F4;
+  text-align: center;
+}
+
+.login-header {
+  font-size: 2.5rem;
+  color: #6C9A8B;
+  margin-bottom: 1rem;
+}
+
+.login-description {
+  font-size: 1.2rem;
+  color: #A1683A;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.login-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #E8998D;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #6C9A8B;
+}
+
+/* TABLE */
+
+table {
+  width: 100%; /* Make the table width smaller */
+  margin: 20px auto; /* Center the table */
+  border-collapse: collapse;
+  border: 2px solid (var(--coral-pink)); /* Solid border around the table */
+  border-radius: 8px; /* Optional: Rounded corners for the border */
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: var(--coral-pink);
+  color: white;
+  font-weight: bold;
+}
+
+td {
+  background-color: #FBF7F4; /* Cream background */
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--cream); /* Alternate row color using var(--cream) */
+}
+
+tr:hover {
+  background-color: #E8998D; /* Coral pink highlight on hover */
+}
+
+.table-wrapper {
+  margin: 0 auto;  /* Centers the table */
+  max-width: 90%;  /* Makes the table take up 90% of the width (can adjust as needed) */
+  padding: 0 20px; /* Adds padding on the left and right */
+}
+
+/* general */
+
+button {
+  background-color: var(--brown); /* Brown color for the button */
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #6C9A8B; /* Hover effect to green */
+}
+
+button:focus {
+  outline: none;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #6C9A8B;
+  margin-bottom: 20px;
+  text-align: center;
+}

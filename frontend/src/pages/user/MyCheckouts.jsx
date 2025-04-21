@@ -1,0 +1,89 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useAuthContext } from '@asgardeo/auth-react';
+
+const MyCheckouts = () => {
+  const { state } = useAuthContext();
+  const [checkouts, setCheckouts] = useState([]);
+
+  useEffect(() => {
+    const fetchCheckouts = async () => {
+      try {
+        const readerRes = await axios.get(
+          `${import.meta.env.VITE_API_URL}/auth/readers/${encodeURIComponent(state.username)}`
+        );
+        const readerId = readerRes.data.reader_id;
+
+        const checkoutRes = await axios.get(
+          `${import.meta.env.VITE_API_URL}/user/checkouts/${readerId}`
+        );
+        setCheckouts(checkoutRes.data);
+      } catch (error) {
+        console.error('Error fetching checkouts:', error);
+      }
+    };
+
+    if (state.isAuthenticated) {
+      fetchCheckouts();
+    }
+  }, [state.username]);
+
+  const handleReturnEarly = async (bookId) => {
+    try {
+      const readerRes = await axios.get(
+        `${import.meta.env.VITE_API_URL}/auth/readers/${encodeURIComponent(state.username)}`
+      );
+      const readerId = readerRes.data.reader_id;
+
+      await axios.put(`${import.meta.env.VITE_API_URL}/user/checkouts/${readerId}/${bookId}`, {
+        checkout_status: false,
+      });
+
+      const updatedCheckoutRes = await axios.get(
+        `${import.meta.env.VITE_API_URL}/user/checkouts/${readerId}`
+      );
+      setCheckouts(updatedCheckoutRes.data);
+    } catch (error) {
+      console.error('Error returning book early:', error);
+    }
+  };
+
+  return (
+    <div className="table-container">
+      <h2>My Checkouts</h2>
+      <div className="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Book Title</th>
+              <th>Book Author</th>
+              <th>Return Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {checkouts.map((checkout) => (
+              <tr key={checkout.Book.book_id}>
+                <td>{checkout.Book.book_title}</td>
+                <td>{checkout.Book.book_author}</td>
+                <td>{new Date(checkout.latest_return_day).toLocaleDateString()}</td>
+                <td>
+                  {checkout.checkout_status && (
+                    <button
+                      className="return-button"
+                      onClick={() => handleReturnEarly(checkout.book_id)}
+                    >
+                      Return Early
+                    </button>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default MyCheckouts;
