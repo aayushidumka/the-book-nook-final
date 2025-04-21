@@ -15,8 +15,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
     <AuthProvider
         config={ {
-            signInRedirectURL: "http://localhost:5173",
-            signOutRedirectURL: "http://localhost:5173",
+            signInRedirectURL: "https://the-book-nook-final.vercel.app/",
+            signOutRedirectURL: "https://the-book-nook-final.vercel.app/",
             clientID: "grFPVm4jl43QsPAf43ozUVmzJ6sa",
             baseUrl: "https://api.asgardeo.io/t/aayushidumka",
             scope: [ "openid","profile" ]
