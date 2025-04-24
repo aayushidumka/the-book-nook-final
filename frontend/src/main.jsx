@@ -16,8 +16,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* changed for asgardeo */}
     <AuthProvider
         config={ {
-            signInRedirectURL: process.env.REACT_APP_SIGNIN_REDIRECT_URL,
-            signOutRedirectURL: process.env.REACT_APP_SIGNOUT_REDIRECT_URL,
+            signInRedirectURL: import.meta.env.VITE_SIGNIN_REDIRECT_URL,
+            signOutRedirectURL: import.meta.env.VITE_SIGNOUT_REDIRECT_URL,
             clientID: "grFPVm4jl43QsPAf43ozUVmzJ6sa",
             baseUrl: "https://api.asgardeo.io/t/aayushidumka",
             scope: [ "openid","profile" ]

@@ -47,7 +47,7 @@ router.get('/checkouts/:reader_id', async (req, res) => {
             },
             include: [{
                 model: Books,
-                attributes: ['book_id', 'book_title', 'book_author'], // Include book details
+                attributes: ['book_id', 'book_title', 'book_author', 'cover_image_url'], // Include book details
             }],
         });
 

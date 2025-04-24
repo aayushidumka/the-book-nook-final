@@ -17,13 +17,13 @@ function Library() {
         console.error('Error fetching books:', error); // Log any errors
       });
   }, []); // Empty dependency array means this effect runs once when the component mounts
-
+  // sx={{ padding: '2rem' }}
   return (
     <>
     <h2>Browse Available Books</h2>
-    <Box sx={{ padding: '2rem' }}>
+    <Box >
       {/* Map over books to create BookCards */}
-      <Grid container spacing={3}>
+      <Grid container spacing={3} justifyContent="center">
         {books.map(book => (
           <Grid item xs={12} sm={6} md={4} key={book.id}>
             <BookCard book={book} /> {/* Passing each book as a prop to BookCard */}
@@ -31,6 +31,11 @@ function Library() {
         ))}
       </Grid>
     </Box>
+
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
     </>
     
   );

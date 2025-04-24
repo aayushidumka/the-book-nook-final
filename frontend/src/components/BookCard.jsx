@@ -88,10 +88,35 @@ const BookCard = ({ book }) => {
 
   return (
     <Card className="book-card" sx={{ width: 300 }}>
-      <CardContent>
+      {/* <CardContent>
         <Typography variant="h6">{book.book_title}</Typography>
         <Typography variant="subtitle1">{book.book_author}</Typography>
         <Typography variant="subtitle2">Published: {new Date(book.publish_date).toLocaleDateString()}</Typography>
+      </CardContent> */}
+
+      <CardContent>
+        <Box display="flex" gap={2}>
+          <Box
+            component="img"
+            src={`${book.cover_image_url}`}
+            alt={`${book.cover_image_url} cover`}
+            sx={{
+              width: 80,
+              height: 120,
+              objectFit: 'cover',
+              borderRadius: '4px',
+              boxShadow: 1,
+              mb: 1,
+            }}
+          />
+          <Box>
+            <Typography variant="h6">{book.book_title}</Typography>
+            <Typography variant="subtitle1">{book.book_author}</Typography>
+            <Typography variant="subtitle2">
+              Published: {new Date(book.publish_date).toLocaleDateString()}
+            </Typography>
+          </Box>
+        </Box>
       </CardContent>
 
       <Box display="flex" justifyContent="space-between" className="card-buttons" padding="0.5rem">

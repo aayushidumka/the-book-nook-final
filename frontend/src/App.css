@@ -62,20 +62,35 @@ header nav a:hover,
   text-decoration: underline;
 }
 
+.site-title {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.site-title:hover {
+  text-decoration: underline;
+}
+
 /* FOOTER */
 
 footer {
-  background-color: var(--green);
-  color: var(--cream);
-  padding: 10px;
+  background-color: var(--green); /* Navy Blue */
+  color: var(--cream); /* White */
   text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  margin-top: auto; /* Ensures the footer stays at the bottom */
+}
+
+footer p {
+  margin: 5px;
 }
 
 /* BOOK CARDS */
 
-.book-card {
+/* .book-card {
   background-color: var(--dusty-pink);
   border: 2px solid var(--brown);
   border-radius: 12px;
@@ -84,7 +99,80 @@ footer {
   max-width: 300px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s;
+} */
+
+.book-card {
+  background-color: var(--dusty-pink);
+  border: none;
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  width: 320px; /* fixed width */
+  height: 220; /* fixed height */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
 }
+
+.book-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  color: var(--brown);
+}
+
+.book-card p {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.book-card .card-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.book-card button {
+  background-color: var(--coral-pink);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-card button:hover {
+  background-color: #5a8377;
+}
+
+/* CHECKOUT MODAL */
+.checkout-dialog .MuiDialog-paper {
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background-color: var(--cream);
+}
+
+.checkout-dialog button.MuiButton-root {
+  border-radius: 20px;
+  padding: 6px 16px;
+  text-transform: none;
+  font-weight: 500;
+  background-color: var(--green);
+  color: var(--cream)
+}
+
+.checkout-dialog button.MuiButton-root:hover {
+  transform: scale(1.03);
+}
+
 
 /* BUTTONS */
 
@@ -119,7 +207,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   background-color: #FBF7F4;
   text-align: center;
 }

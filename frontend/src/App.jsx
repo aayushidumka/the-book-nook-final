@@ -7,7 +7,7 @@ import './App.css';
 
 // pages
 import Login from './pages/common/Login';
-import LandingRedirect from './pages/common/LandingRedirect';
+// import LandingRedirect from './pages/common/LandingRedirect';
 import Library from './pages/user/Library';
 import MyCheckouts from './pages/user/MyCheckouts';
 import Books from './pages/admin/Books';
@@ -20,9 +20,7 @@ function App() {
       <Header />
       <Routes>
         {/* common routes */} 
-        {/* <Route path="/" element={<Login />} /> */}
-        <Route path="/" element={<LandingRedirect />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/not-authorized" element={<NotAuthorized />} />
 
         {/* user-only routes */}
