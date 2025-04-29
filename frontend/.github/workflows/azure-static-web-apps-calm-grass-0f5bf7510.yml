@@ -32,6 +32,10 @@ jobs:
           api_location: "api" # Api source code path - optional
           output_location: "dist" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env:
+          VITE_API_URL: "https://the-book-nook-backend-frd4gccmdweybya8.centralus-01.azurewebsites.net/"
+          VITE_SIGNIN_REDIRECT_URL: "https://calm-grass-0f5bf7510.6.azurestaticapps.net/"
+          VITE_SIGNOUT_REDIRECT_URL: "https://calm-grass-0f5bf7510.6.azurestaticapps.net/"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

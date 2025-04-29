@@ -263,15 +263,7 @@ th {
 }
 
 td {
-  background-color: #FBF7F4; /* Cream background */
-}
-
-tbody tr:nth-child(even) {
-  background-color: var(--cream); /* Alternate row color using var(--cream) */
-}
-
-tr:hover {
-  background-color: #E8998D; /* Coral pink highlight on hover */
+  background-color: white; /* Cream background */
 }
 
 .table-wrapper {
@@ -304,4 +296,24 @@ h2 {
   color: #6C9A8B;
   margin-bottom: 20px;
   text-align: center;
+}
+
+/* filter and dropdown */
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Add space between the filter and table */
+}
+
+.filter-container label {
+  margin-right: 10px; /* Space between label and dropdown */
+}
+
+.filter-container select {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }

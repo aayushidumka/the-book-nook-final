@@ -8,6 +8,7 @@ const sequelize = require('./config/database');
 const userRoutes = require('./routes/user');
 const adminRoutes = require('./routes/admin');
 const authRoutes = require('./routes/auth');
+const aiRoutes = require('./routes/aiblurb')
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use('/user', userRoutes);
 app.use('/admin', adminRoutes);
 app.use('/auth', authRoutes);
+app.use('/aiblurb', aiRoutes)
 
 // test db connection and sync models
 sequelize.authenticate()

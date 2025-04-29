@@ -4,6 +4,7 @@ import '@/App.css';
 
 function AllCheckouts() {
   const [checkouts, setCheckouts] = useState([]);
+  const [filterStatus, setFilterStatus] = useState('all'); // 'active', 'inactive', 'all'
 
   useEffect(() => {
     const fetchCheckouts = async () => {
@@ -18,9 +19,37 @@ function AllCheckouts() {
     fetchCheckouts();
   }, []);
 
+  // Filter checkouts based on the selected status
+  const filteredCheckouts = checkouts.filter((checkout) => {
+    if (filterStatus === 'all') return true; // Show all
+    return checkout.checkout_status === (filterStatus === 'active'); // TRUE for active, FALSE for inactive
+  });
+
+  // Sort checkouts by return date (most recent at the top)
+  const sortedCheckouts = filteredCheckouts.sort((a, b) => {
+    const dateA = new Date(a.latest_return_day);
+    const dateB = new Date(b.latest_return_day);
+    return dateB - dateA; // Most recent first
+  });
+
   return (
     <div className="table-container">
       <h2>All Checkouts</h2>
+
+      {/* Center-aligned dropdown for active/inactive/all */}
+      <div className="filter-container">
+        <label htmlFor="status-filter">Filter by Status: </label>
+        <select
+          id="status-filter"
+          value={filterStatus}
+          onChange={(e) => setFilterStatus(e.target.value)}
+        >
+          <option value="all">Show All</option>
+          <option value="active">Show Active</option>
+          <option value="inactive">Show Inactive</option>
+        </select>
+      </div>
+
       <div className="table-wrapper">
         <table>
           <thead>
@@ -33,7 +62,7 @@ function AllCheckouts() {
             </tr>
           </thead>
           <tbody>
-            {checkouts.map((checkout) => (
+            {sortedCheckouts.map((checkout) => (
               <tr key={checkout.Book.book_id}>
                 <td>{checkout.Book.book_title}</td>
                 <td>{checkout.Book.book_author}</td>
@@ -45,8 +74,13 @@ function AllCheckouts() {
           </tbody>
         </table>
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   );
 }
 
 export default AllCheckouts;
+
+
