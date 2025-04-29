@@ -4,6 +4,7 @@ const OpenAI = require('openai'); // <- no curly braces
 require('dotenv').config();
 
 // initialize OpenAI instance
+// ? trigger redeploy
 const openai = new OpenAI({
   apiKey: process.env.OPEN_AI_KEY, // make sure this is set in your .env
 });
